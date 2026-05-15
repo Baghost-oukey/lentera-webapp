@@ -1,89 +1,151 @@
-
 <section class="relative pt-36 pb-32 px-6 bg-[#F8FAFC] overflow-hidden">
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#6320EE_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-
-  <div class="max-w-7xl mx-auto relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-      
-      <div class="lg:col-span-6">
-        <h1 class="text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 mb-8 leading-[0.85] tracking-tighter uppercase">
-          Belajar Asik, <br />
-          <span class="text-[#6320EE]">Masa Depan</span> <br />
-          Terik
-        </h1>
-        
-        <p class="text-slate-500 text-lg md:text-xl max-w-xl mb-12 leading-relaxed font-medium">
-          LENTERA adalah pendamping belajar cerdas yang memahami karaktermu. Kami hadirkan kurikulum masa depan dengan sentuhan kearifan lokal.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-6 mb-20">
-          <a href="#start" class="bg-[#C6F432] hover:bg-[#b3dd2d] text-slate-950 font-black px-10 py-5 rounded-full text-xl transition-all shadow-xl shadow-lime-500/20 active:scale-95">
-            Mulai Belajar Sekarang
-          </a>
-          <button class="group w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#6320EE] hover:bg-[#6320EE] hover:text-white transition-all shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ml-1 transition-transform duration-300 group-hover:translate-x-1" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-3 gap-8 border-t border-slate-200">
-          <div>
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Siswa Aktif</p>
-            <p class="text-3xl font-black text-slate-900">10K+</p>
-          </div>
-          <div>
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">Konsep Belajar</p>
-            <p class="text-3xl font-black text-slate-900">1,200+</p>
-          </div>
-          <div>
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-2">AI Mentor</p>
-            <p class="text-3xl font-black text-slate-900">24/7</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lg:col-span-6 relative">
-        <div class="absolute -top-10 -left-10 z-20 hidden md:block">
-          <div class="relative w-32 h-32 flex items-center justify-center animate-spin [animation-duration:12s]">
-            <svg viewBox="0 0 100 100" class="w-full h-full text-slate-900 fill-current">
-              <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="none" />
-              <text font-size="11" font-weight="bold">
-                <textPath xlink:href="#circlePath">
-                  • LENTERA AI MENTOR • TERBAIK DI DESA • 
-                </textPath>
-              </text>
-            </svg>
-            <div class="absolute inset-0 flex items-center justify-center text-2xl">💡</div>
-          </div>
-        </div>
-
-        <div class="relative group">
-          <div class="absolute -inset-4 bg-purple-600/10 blur-[60px] rounded-full group-hover:bg-purple-600/20 transition-all duration-700"></div>
-          <div class="relative bg-white p-2 rounded-[3.5rem] shadow-2xl overflow-hidden">
-            <div class="absolute top-0 left-0 w-24 h-24 bg-[#F8FAFC] rounded-br-[3.5rem] hidden md:block z-10"></div>
-            
-            <div class="relative bg-slate-900 rounded-[3rem] overflow-hidden min-h-[500px] flex items-center justify-center z-0">
-              <div class="w-full h-full py-12 px-6">
-                <slot />
-              </div>
-            </div>
-          </div>
-          
-          <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 hidden md:flex items-center gap-4 animate-bounce [animation-duration:4s]">
-             <div class="flex -space-x-2">
-                <div class="w-8 h-8 rounded-full bg-purple-100 border-2 border-white flex items-center justify-center text-[10px]">👨‍🎓</div>
-                <div class="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[10px]">👩‍🎓</div>
-                <div class="w-8 h-8 rounded-full bg-teal-100 border-2 border-white flex items-center justify-center text-[10px]">🚀</div>
-             </div>
-             <div>
-                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Bergabung</p>
-                <p class="text-xs font-black text-slate-900">500+ Siswa Baru</p>
-             </div>
-          </div>
-        </div>
-      </div>
-
+    <div
+        class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#6320EE_1px,transparent_1px)] bg-[size:40px_40px]"
+    >
     </div>
-  </div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+            <div class="lg:col-span-6">
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 mb-6 leading-[1.05] tracking-tight uppercase"
+                >
+                    Belajar Asik, <br />
+                    <span class="text-[#6320EE]">Masa Depan</span>
+                    <br />
+                    Terik
+                </h1>
+
+                <p
+                    class="text-slate-500 text-lg max-w-lg mb-10 leading-relaxed font-medium"
+                >
+                    LENTERA adalah pendamping belajar cerdas yang memahami
+                    karaktermu. Kami hadirkan kurikulum masa depan dengan
+                    sentuhan kearifan lokal.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-5 mb-16">
+                    <a
+                        href="#start"
+                        class="bg-[#C6F432] hover:bg-[#b3dd2d] text-slate-950 font-bold px-8 py-4 rounded-full text-lg transition-all shadow-xl shadow-lime-500/20 active:scale-95"
+                    >
+                        Mulai Belajar Sekarang
+                    </a>
+                 
+                </div>
+
+                <div
+                    class="grid grid-cols-3 gap-6 border-t border-slate-200/80"
+                >
+                    <div>
+                        <p
+                            class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+                        >
+                            Siswa Aktif
+                        </p>
+                        <p class="text-2xl font-black text-slate-900">10K+</p>
+                    </div>
+                    <div>
+                        <p
+                            class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+                        >
+                            Konsep Belajar
+                        </p>
+                        <p class="text-2xl font-black text-slate-900">1,200+</p>
+                    </div>
+                    <div>
+                        <p
+                            class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+                        >
+                            AI Mentor
+                        </p>
+                        <p class="text-2xl font-black text-slate-900">24/7</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 relative">
+                <div class="absolute -top-10 -left-10 z-20 hidden md:block">
+                    <div
+                        class="relative w-32 h-32 flex items-center justify-center animate-spin [animation-duration:12s]"
+                    >
+                        <svg
+                            viewBox="0 0 100 100"
+                            class="w-full h-full text-slate-900 fill-current"
+                        >
+                            <path
+                                id="circlePath"
+                                d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                                fill="none"></path>
+                            <text font-size="11" font-weight="bold">
+                                <textPath xlink:href="#circlePath">
+                                    • LENTERA AI MENTOR • TERBAIK DI DESA •
+                                </textPath>
+                            </text>
+                        </svg>
+                        <div
+                            class="absolute inset-0 flex items-center justify-center text-2xl"
+                        >
+                            💡
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-4 bg-purple-600/10 blur-[60px] rounded-full group-hover:bg-purple-600/20 transition-all duration-700"
+                    >
+                    </div>
+                    <div
+                        class="relative bg-white p-2 rounded-[3.5rem] shadow-2xl overflow-hidden"
+                    >
+                        <div
+                            class="absolute top-0 left-0 w-24 h-24 bg-[#F8FAFC] rounded-br-[3.5rem] hidden md:block z-10"
+                        >
+                        </div>
+
+                        <div
+                            class="relative bg-slate-900 rounded-[3rem] overflow-hidden min-h-[500px] flex items-center justify-center z-0"
+                        >
+                            <div class="w-full h-full py-12 px-6">
+                                <slot />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="absolute -bottom-6 -right-6 bg-white p-4 rounded-3xl shadow-2xl border border-slate-100 hidden md:flex items-center gap-4 animate-bounce [animation-duration:4s]"
+                    >
+                        <div class="flex -space-x-2">
+                            <div
+                                class="w-8 h-8 rounded-full bg-purple-100 border-2 border-white flex items-center justify-center text-[10px]"
+                            >
+                                👨‍🎓
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-amber-100 border-2 border-white flex items-center justify-center text-[10px]"
+                            >
+                                👩‍🎓
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-full bg-teal-100 border-2 border-white flex items-center justify-center text-[10px]"
+                            >
+                                🚀
+                            </div>
+                        </div>
+                        <div>
+                            <p
+                                class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter"
+                            >
+                                Bergabung
+                            </p>
+                            <p class="text-xs font-black text-slate-900">
+                                500+ Siswa Baru
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>

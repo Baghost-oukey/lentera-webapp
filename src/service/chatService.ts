@@ -5,7 +5,6 @@ import type { Message } from "../generated/prisma";
 
 export class ChatService {
   static async handleUserMessage(userId: string, content: string) {
-    // 1. Ambil data User & History (Context Awareness)
     const user = await db.user.findUnique({
       where: { id: userId },
       include: { 
@@ -18,34 +17,33 @@ export class ChatService {
 
     if (!user) throw new Error("User tidak ditemukan");
 
-    // 2. Susun prompt dengan teknik Invisible Profiling
     const history = user.messages
       .reverse()
       .map((m: Message) => `${m.role === 'user' ? 'Siswa' : 'Mentor'}: ${m.content}`)
       .join("\n");
 
+    // 1. Prompt dikoreksi agar AI memberikan JSON murni tanpa markdown
     const prompt = `
-      Kamu adalah LENTERA Mentor untuk anak ${user.schoolLevel}.
-      Profil Psikologis/Belajar saat ini: ${JSON.stringify(user.aiProfile)}.
+      Kamu adalah Mentor LENTERA untuk anak ${user.schoolLevel}.
+      Profil Psikologis saat ini: ${JSON.stringify(user.aiProfile)}.
       
       History Percakapan:
       ${history}
 
-      Pesan terbaru dari anak: "${content}"
+      Pertanyaan Siswa: "${content}"
 
-      Tugasmu:
-      1. Balas dengan ramah, santai, dan gunakan analogi desa. 
-      2. Jangan beri jawaban langsung, pancing dengan pertanyaan logika.
-      3. Analisis apakah ada minat baru atau perubahan gaya belajar dari pesan ini.
+      Tugas:
+      1. Beri balasan ramah dengan analogi kearifan lokal (desa/pasar/sawah).
+      2. Pancing logika siswa, jangan beri jawaban langsung.
+      3. Analisis minat baru dari percakapan ini.
 
-      Output harus format JSON:
+      PENTING: Balas HANYA dengan format JSON murni berikut:
       {
-        "reply": "isi balasanmu",
-        "profileUpdate": { "interest": ["list minat baru"], "pace": "slow/normal/fast", "notes": "catatan perkembangan" }
+        "reply": "Isi balasanmu",
+        "profileUpdate": { "interest": [], "pace": "normal", "notes": "" }
       }
     `;
 
-    // 3. Panggil AI dengan penanganan error parsing
     interface AIResponse {
       reply: string;
       profileUpdate: {
@@ -56,35 +54,47 @@ export class ChatService {
     }
 
     let aiData: AIResponse;
+    
     try {
       const result = await mentorModel.generateContent(prompt);
-      const responseText = result.response.text();
+      let responseText = result.response.text();
+      
+      // 2. Sanitasi Response: Menghapus block markdown ```json jika AI membandel
+      responseText = responseText.replace(/```json|```/g, "").trim();
+      
       aiData = JSON.parse(responseText);
     } catch (error) {
-      console.error("AI Response Parsing Error:", error);
-      throw new Error("Gagal mendapatkan respon cerdas dari mentor. Silakan coba lagi.");
+      console.error("AI Error:", error);
+      // Fallback jika AI gagal memberikan JSON yang valid
+      aiData = {
+        reply: "Wah, mentor sedang merenung sejenak. Bisa ceritakan lagi pelan-pelan?",
+        profileUpdate: { interest: [], pace: "normal", notes: "JSON parsing failed" }
+      };
     }
 
-    // 4. Simpan ke Database (Atomic Transaction)
-    // Keuntungan: Jika simpan pesan gagal, profil tidak akan terupdate (konsisten)
     return await db.$transaction(async (tx) => {
-      // Simpan pesan user
       await tx.message.create({
         data: { content, role: 'user', userId }
       });
 
-      // Simpan balasan mentor
       const mentorReply = await tx.message.create({
         data: { content: aiData.reply, role: 'mentor', userId }
       });
 
-      // Update profil secara invisible (merge data lama dengan update terbaru)
+      // 3. Update profil: Pastikan minat bersifat akumulatif (tidak tertimpa)
+      const currentProfile = (user.aiProfile as any) || { interest: [] };
+      const newInterests = Array.from(new Set([
+        ...(currentProfile.interest || []),
+        ...(aiData.profileUpdate.interest || [])
+      ]));
+
       await tx.user.update({
         where: { id: userId },
         data: { 
           aiProfile: { 
-            ...(user.aiProfile as object), 
-            ...aiData.profileUpdate 
+            ...currentProfile, 
+            ...aiData.profileUpdate,
+            interest: newInterests // Minat digabung, bukan diganti
           } 
         }
       });

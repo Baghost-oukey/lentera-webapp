@@ -14,6 +14,9 @@ export const POST: APIRoute = async ({ request }) => {
 
     return new Response(JSON.stringify(user), { status: 201 });
   } catch (error) {
+    // 🔴 TAMBAHKAN BARIS INI UNTUK MELIHAT ERROR ASLINYA DI TERMINAL VS CODE
+    console.error("🔥 DETAIL ERROR DATABASE:", error); 
+    
     return new Response(JSON.stringify({ error: "Gagal mendaftarkan user" }), { status: 500 });
   }
 };
