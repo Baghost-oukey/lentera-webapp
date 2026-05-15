@@ -14,34 +14,40 @@ const description = "Platform belajar inovatif yang menggunakan AI untuk menjela
 ---
 
 <Layout {title} {description}>
-  <main>
-    <Navbar />
-    
-    <Hero>
-      { /* @ts-ignore */ }
-      <Onboarding client:load />
-    </Hero>
+  <div class="bg-[#F8FAFC] selection:bg-[#6320EE]/10 selection:text-[#6320EE]">
+    <main>
+      <Navbar />
+      
+      <Hero>
+        { /* @ts-ignore */ }
+        <Onboarding client:load />
+      </Hero>
 
-    <Services />
+      <Services />
 
-    <Solutions />
+      <Solutions />
 
-    <Testimonials />
+      <Testimonials />
 
-    <Community />
-    
-    <footer class="py-20 text-center border-t border-white/5 bg-slate-950/20">
-      <div class="max-w-5xl mx-auto px-6">
-        <p class="text-slate-500 text-xs font-medium tracking-[0.2em] uppercase mb-8">
-          © 2026 LENTERA Project • Made with Passion for Indonesia
-        </p>
-        <div class="flex justify-center gap-12 text-slate-400 text-sm font-bold uppercase tracking-widest">
-          <a href="#" class="hover:text-teal-400 transition-colors">Courses</a>
-          <a href="#" class="hover:text-teal-400 transition-colors">Pricing</a>
-          <a href="#" class="hover:text-teal-400 transition-colors">Mentor</a>
-          <a href="#" class="hover:text-teal-400 transition-colors">Contact</a>
+      <Community />
+      
+      <footer class="py-24 text-center border-t border-slate-200 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+          <div class="flex items-center justify-center gap-2 mb-10">
+            <span class="text-2xl">💡</span>
+            <span class="text-xl font-black text-slate-900 tracking-tighter uppercase">LENTERA</span>
+          </div>
+          <p class="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-10">
+            © 2026 LENTERA Project • Mencerdaskan Bangsa dengan Teknologi AI
+          </p>
+          <div class="flex flex-wrap justify-center gap-10 text-slate-500 text-sm font-bold uppercase tracking-widest">
+            <a href="#" class="hover:text-[#6320EE] transition-colors">Visi & Misi</a>
+            <a href="#" class="hover:text-[#6320EE] transition-colors">Kurikulum</a>
+            <a href="#" class="hover:text-[#6320EE] transition-colors">AI Mentor</a>
+            <a href="#" class="hover:text-[#6320EE] transition-colors">Kontak Kami</a>
+          </div>
         </div>
-      </div>
-    </footer>
-  </main>
+      </footer>
+    </main>
+  </div>
 </Layout>

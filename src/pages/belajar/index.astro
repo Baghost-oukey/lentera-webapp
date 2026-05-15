@@ -10,10 +10,10 @@ import Navbar from "../../components/Navbar.astro";
     title="Ruang Belajar - LENTERA"
     description="Interaksi langsung dengan AI Mentor LENTERA untuk membedah materi pelajaranmu."
 >
-    <main class="min-h-screen bg-[#0F172A] relative overflow-hidden selection:bg-[#6320EE]/30">
+    <main class="min-h-screen bg-[#F8FAFC] relative overflow-hidden selection:bg-[#6320EE]/10 selection:text-[#6320EE]">
         
-        <div class="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-[#6320EE]/10 blur-[120px] rounded-full pointer-events-none"></div>
-        <div class="absolute -bottom-[10%] -right-[10%] w-[600px] h-[600px] bg-[#C6F432]/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div class="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-[#6320EE]/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[600px] h-[600px] bg-[#C6F432]/10 blur-[150px] rounded-full pointer-events-none"></div>
 
         <Navbar />
 
@@ -24,7 +24,7 @@ import Navbar from "../../components/Navbar.astro";
                     <ProfileSidebar client:load />
                 </aside>
 
-                <section class="lg:col-span-9 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                <section class="lg:col-span-9">
                     <Chat client:load />
                 </section>
                 
