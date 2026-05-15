@@ -1,0 +1,47 @@
+---
+
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Hero from './_components/Hero.astro';
+import Services from './_components/Services.astro';
+import Solutions from './_components/Solutions.astro';
+import Testimonials from './_components/Testimonials.astro';
+import Community from './_components/Community.astro';
+import Onboarding from '../../components/Onboarding.svelte';
+
+const title = "LENTERA - Terangi Jalur Belajarmu dengan AI Mentor Lokal";
+const description = "Platform belajar inovatif yang menggunakan AI untuk menjelaskan konsep rumit melalui analogi kearifan lokal Indonesia.";
+---
+
+<Layout {title} {description}>
+  <main>
+    <Navbar />
+    
+    <Hero>
+      { /* @ts-ignore */ }
+      <Onboarding client:load />
+    </Hero>
+
+    <Services />
+
+    <Solutions />
+
+    <Testimonials />
+
+    <Community />
+    
+    <footer class="py-20 text-center border-t border-white/5 bg-slate-950/20">
+      <div class="max-w-5xl mx-auto px-6">
+        <p class="text-slate-500 text-xs font-medium tracking-[0.2em] uppercase mb-8">
+          © 2026 LENTERA Project • Made with Passion for Indonesia
+        </p>
+        <div class="flex justify-center gap-12 text-slate-400 text-sm font-bold uppercase tracking-widest">
+          <a href="#" class="hover:text-teal-400 transition-colors">Courses</a>
+          <a href="#" class="hover:text-teal-400 transition-colors">Pricing</a>
+          <a href="#" class="hover:text-teal-400 transition-colors">Mentor</a>
+          <a href="#" class="hover:text-teal-400 transition-colors">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</Layout>

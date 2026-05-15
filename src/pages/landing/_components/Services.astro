@@ -1,0 +1,99 @@
+---
+const tutorImg = "/tutor_student_learning_1778817368080.png";
+const calendarImg = "/calendar_educational_illustration_1778817389135.png";
+const studentImg = "/student_male_learning_1778817093108.png";
+
+const services = [
+  {
+    title: "Personalized Learning Plans",
+    img: studentImg
+  },
+  {
+    title: "Experienced Tutors & Coaches",
+    img: tutorImg
+  },
+  {
+    title: "Flexible Scheduling",
+    img: calendarImg
+  }
+];
+---
+
+<section class="py-32 px-6 bg-[#F8FAFC]">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
+      <div class="max-w-2xl relative">
+        <span class="inline-block px-4 py-2 rounded-full bg-[#ECE9FE] text-[#6320EE] text-xs font-bold uppercase tracking-wider mb-6">
+          Our Services
+        </span>
+        <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight relative">
+          How Our <span class="relative inline-block px-1">
+            Homeschooling
+            <!-- Multi-stroke Scribble Underline -->
+            <svg viewBox="0 0 200 25" preserveAspectRatio="none" class="absolute -bottom-3 left-0 w-full h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10,15 C50,5 90,25 130,15 C160,10 190,5 190,12" />
+              <path d="M15,20 C55,10 95,30 135,20 C165,15 185,10 185,17" opacity="0.7" />
+              <path d="M20,12 C60,2 100,22 140,12 C170,7 180,2 180,9" opacity="0.4" />
+            </svg>
+          </span> Services Work
+
+          <!-- Professional Sparkles -->
+          <div class="absolute -top-8 -right-14 text-[#6320EE]">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="currentColor">
+              <!-- Big Star -->
+              <path d="M12,2L13.5,8.5L20,10L13.5,11.5L12,18L10.5,11.5L4,10L10.5,8.5L12,2Z" />
+              <!-- Small Star -->
+              <path d="M20,14L20.5,16.5L23,17L20.5,17.5L20,20L19.5,17.5L17,17L19.5,16.5L20,14Z" />
+            </svg>
+          </div>
+        </h2>
+      </div>
+      <p class="text-slate-500 max-w-sm text-lg font-medium leading-relaxed">
+        Learn how our homeschooling services provide personalized, flexible learning tailored to your child's needs, all from the comfort of home!
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="relative group">
+          <!-- Orange Button Tab -->
+          <div class="absolute -top-4 -right-4 z-20">
+            <div class="w-20 h-20 bg-[#F8FAFC] rounded-full p-2">
+              <button class="w-full h-full bg-[#F59E0B] rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M7 17L17 7M17 7H7M17 7V17" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Purple Card Body -->
+          <div class="bg-[#6320EE] rounded-[3.5rem] pt-12 px-2 pb-2 h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-purple-600/20 group-hover:-translate-y-2">
+            <h3 class="text-2xl font-bold text-white px-8 mb-10 max-w-[200px] leading-snug">
+              {service.title}
+            </h3>
+            
+            <!-- Image Container with Custom Shape -->
+            <div class="mt-auto relative">
+              <!-- Masking layer to create the "wavy" top cutout -->
+              <div class="absolute -top-10 left-0 w-full h-12 bg-[#6320EE] rounded-t-[3rem]"></div>
+              <div class="relative bg-white rounded-t-[3rem] rounded-b-[3rem] overflow-hidden">
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Optional: Custom clip-path for more advanced card shapes if needed */
+</style>

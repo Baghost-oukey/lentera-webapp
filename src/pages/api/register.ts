@@ -1,0 +1,19 @@
+// src/pages/api/register.ts
+import type { APIRoute } from 'astro';
+import { UserService } from '../../service/userService';
+
+export const POST: APIRoute = async ({ request }) => {
+  try {
+    const { name, schoolLevel } = await request.json();
+
+    if (!name || !schoolLevel) {
+      return new Response(JSON.stringify({ error: "Data tidak lengkap" }), { status: 400 });
+    }
+
+    const user = await UserService.createUser(name, schoolLevel);
+
+    return new Response(JSON.stringify(user), { status: 201 });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Gagal mendaftarkan user" }), { status: 500 });
+  }
+};

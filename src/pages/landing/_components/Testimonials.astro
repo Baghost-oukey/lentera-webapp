@@ -1,0 +1,60 @@
+---
+const testimonials = [
+  {
+    name: "Andi Pratama",
+    role: "Orang Tua Siswa SMP",
+    text: "LENTERA mengubah cara anak saya belajar Matematika. Analogi tentang pasar tradisional membuatnya mengerti konsep untung rugi dalam sekejap!",
+    avatar: "👨‍💼",
+    rating: 5
+  },
+  {
+    name: "Siti Aminah",
+    role: "Orang Tua Siswa SMA",
+    text: "Sangat terbantu dengan fitur mentor AI-nya. Anak saya tidak lagi takut bertanya walau sudah tengah malam sekalipun.",
+    avatar: "👩‍🏫",
+    rating: 5
+  },
+  {
+    name: "Budi Santoso",
+    role: "Ayah dari 2 Anak",
+    text: "Pendekatan kearifan lokalnya jempolan. Belajar Fisika jadi seru karena pakai contoh-contoh di sekitar rumah kami di desa.",
+    avatar: "👨‍🌾",
+    rating: 5
+  }
+];
+---
+
+<section class="py-32 px-6 bg-slate-950/20">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20">
+      <span class="text-amber-500 font-bold tracking-widest uppercase text-xs mb-4 block">Testimonials</span>
+      <h2 class="text-4xl md:text-6xl font-black text-white leading-tight">
+        Listen to <span class="text-purple-500">Parents'</span> Feedback
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map(t => (
+        <div class="bg-slate-900/40 border border-white/5 p-10 rounded-[3rem] hover:bg-slate-900/60 transition-all group">
+          <div class="flex gap-1 mb-6">
+            {[...Array(t.rating)].map(() => (
+              <span class="text-amber-500">★</span>
+            ))}
+          </div>
+          <p class="text-slate-300 italic text-lg leading-relaxed mb-10">
+            "{t.text}"
+          </p>
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-slate-800 rounded-full flex items-center justify-center text-3xl shadow-xl group-hover:scale-110 transition-transform">
+              {t.avatar}
+            </div>
+            <div>
+              <h4 class="text-white font-bold">{t.name}</h4>
+              <p class="text-slate-500 text-sm">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

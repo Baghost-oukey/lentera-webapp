@@ -12,6 +12,17 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.3.3"
+    "@astrojs/svelte": "^8.1.1",
+    "@google/generative-ai": "^0.24.1",
+    "@prisma/client": "7.8.0",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.3.3",
+    "prisma": "7.8.0",
+    "svelte": "^5.55.7",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0"
   }
 }

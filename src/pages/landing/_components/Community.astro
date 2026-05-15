@@ -1,0 +1,33 @@
+---
+const studentFemale = "/student_female_learning_1778817112740.png";
+---
+
+<section class="py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="relative bg-linear-to-r from-purple-700 to-indigo-900 rounded-[4rem] p-12 md:p-24 overflow-hidden shadow-3xl">
+      <!-- Decorative circles -->
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      
+      <div class="flex flex-col md:flex-row items-center gap-16 relative z-10">
+        <div class="flex-1 text-center md:text-left">
+          <h2 class="text-4xl md:text-7xl font-black text-white mb-8 leading-tight">
+            Join our growing <br /> <span class="text-amber-400">community</span>
+          </h2>
+          <p class="text-purple-100 text-lg md:text-xl max-w-xl mb-12 opacity-80">
+            Dapatkan akses ke materi eksklusif, webinar bersama pakar pendidikan, dan diskusi seru bersama ribuan siswa lainnya.
+          </p>
+          <a href="#start" class="inline-block bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xl px-12 py-5 rounded-3xl transition-all shadow-2xl shadow-amber-500/20 active:scale-95">
+            Daftar Sekarang
+          </a>
+        </div>
+        
+        <div class="flex-1 hidden lg:block">
+          <div class="relative">
+            <div class="absolute inset-0 bg-amber-500/20 blur-[60px] rounded-full"></div>
+            <img src={studentFemale} alt="Community" class="w-[450px] h-[450px] object-cover rounded-[4rem] shadow-2xl border-4 border-white/10" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
