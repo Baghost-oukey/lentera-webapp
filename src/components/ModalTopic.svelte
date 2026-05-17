@@ -1,6 +1,11 @@
 <!-- src/components/ModalTopic.svelte -->
 <script lang="ts">
-  let { userId = '', selectedLevel = 'SMP', onClose = () => {} } = $props();
+  interface Props {
+    userId?: string;
+    selectedLevel?: string;
+    onClose?: () => void;
+  }
+  let { userId = '', selectedLevel = 'SMP', onClose = () => {} }: Props = $props();
 
   let topicQuery = $state('');
   let isLoading  = $state(false);
