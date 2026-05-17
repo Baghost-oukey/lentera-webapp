@@ -59,6 +59,7 @@
       />
       <button 
         onclick={chat.sendMessage}
+        aria-label="Kirim pesan"
         class="bg-[#C6F432] hover:bg-[#b3dd2d] p-5 rounded-2xl text-slate-950 transition-all shadow-lg shadow-[#C6F432]/20 active:scale-90"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
