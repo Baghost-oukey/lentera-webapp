@@ -1,9 +1,30 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition';
+  import { onMount } from 'svelte';
   import { createChat } from './chat.svelte.ts';
+  import ModalTopic from './ModalTopic.svelte';
 
   const chat = createChat();
   let chatContainer: HTMLElement;
+
+  let userId = '';
+  let schoolLevel = 'SMP';
+  let showTopicModal = false;
+
+  onMount(async () => {
+    userId = localStorage.getItem('lentera_user_id') || '';
+    if (userId) {
+      try {
+        const res = await fetch(`/api/profile?userId=${userId}`);
+        if (res.ok) {
+          const profile = await res.json();
+          schoolLevel = profile.schoolLevel || 'SMP';
+        }
+      } catch (e) {
+        console.error("Failed to load user profile:", e);
+      }
+    }
+  });
 
   // Auto-scroll ke bawah saat ada pesan baru
   $effect(() => {
@@ -26,6 +47,14 @@
         <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Active Now</p>
       </div>
     </div>
+
+    <!-- Tombol Pintasan Jelajah Materi Baru -->
+    <button 
+      onclick={() => showTopicModal = true}
+      class="flex items-center gap-2 px-5 py-2.5 bg-[#C6F432] text-slate-900 font-black text-xs rounded-xl shadow-lg shadow-lime-500/10 hover:bg-opacity-95 transition-all duration-200 transform hover:-translate-y-0.5 active:scale-95"
+    >
+      🚀 Jelajah Materi Baru
+    </button>
   </div>
 
   <div bind:this={chatContainer} class="flex-1 overflow-y-auto p-8 space-y-8 scrollbar-hide bg-slate-50/30">
@@ -69,3 +98,11 @@
     </div>
   </div>
 </div>
+
+{#if showTopicModal}
+  <ModalTopic 
+    userId={userId} 
+    selectedLevel={schoolLevel} 
+    onClose={() => showTopicModal = false} 
+  />
+{/if}

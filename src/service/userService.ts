@@ -1,11 +1,23 @@
 import { db } from "../lib/db";
 
 export class UserService {
-  // 1. Create User: Sudah benar, saya tambahkan struktur default yang lebih lengkap
-  static async createUser(name: string, schoolLevel: string) {
+  // 1. Get or Create User — frictionless login berbasis nama
+  static async getOrCreateUser(name: string, schoolLevel: string) {
+    const trimmedName = name.trim();
+
+    // Cari user yang sudah terdaftar (case-insensitive)
+    const existing = await db.user.findFirst({
+      where: {
+        name: { equals: trimmedName, mode: 'insensitive' },
+        schoolLevel
+      }
+    });
+
+    if (existing) return existing;
+
     return await db.user.create({
       data: {
-        name,
+        name: trimmedName,
         schoolLevel,
         aiProfile: {
           interest: [],
@@ -23,6 +35,11 @@ export class UserService {
       where: { id },
       // Kita include count messages agar bisa menampilkan "Total Pesan" di dashboard
       include: {
+        lessons: {
+          orderBy: {
+            createdAt: 'desc'
+          }
+        },
         _count: {
           select: { messages: true }
         }

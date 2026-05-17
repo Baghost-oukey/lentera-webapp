@@ -10,9 +10,9 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: "Data tidak lengkap" }), { status: 400 });
     }
 
-    const user = await UserService.createUser(name, schoolLevel);
+    const user = await UserService.getOrCreateUser(name, schoolLevel);
 
-    return new Response(JSON.stringify(user), { status: 201 });
+    return new Response(JSON.stringify(user), { status: 200 });
   } catch (error) {
     // 🔴 TAMBAHKAN BARIS INI UNTUK MELIHAT ERROR ASLINYA DI TERMINAL VS CODE
     console.error("🔥 DETAIL ERROR DATABASE:", error); 

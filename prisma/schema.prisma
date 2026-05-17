@@ -19,6 +19,7 @@ model User {
   schoolLevel   String    // SMP atau SMA
   aiProfile     Json      @default("{}")
   messages      Message[]
+  lessons       GeneratedLesson[]
   createdAt     DateTime  @default(now())
 }
 
@@ -29,4 +30,25 @@ model Message {
   userId    String
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
+}
+
+model GeneratedLesson {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  
+  // Data Input & Referensi Wikipedia
+  userPrompt   String   // Apa yang diketik anak (misal: "cara kerja server")
+  sourceTitle  String   // Judul resmi dari Wiki (misal: "Peladen")
+  
+  // Konten Hasil Parsing Markdown
+  lessonTitle  String   // Judul modul untuk di UI LENTERA
+  cleanContent String   // Teks format Markdown hasil olahan sentence-splitter
+  
+  // Metadata Monitoring Perkembangan
+  schoolLevel  String   // SMP atau SMA
+  difficulty   String   @default("Normal")
+  createdAt    DateTime @default(now())
+
+  @@index([userId])
 }

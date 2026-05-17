@@ -1,7 +1,10 @@
 // src/lib/ai.ts
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(import.meta.env.GEMINI_API_KEY);
+const apiKey = import.meta.env.GEMINI_API_KEY;
+if (!apiKey) throw new Error("GEMINI_API_KEY tidak ditemukan di environment.");
+
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export const mentorModel = genAI.getGenerativeModel({
   model: "gemini-2.5-flash",

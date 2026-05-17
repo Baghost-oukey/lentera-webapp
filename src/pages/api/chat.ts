@@ -6,8 +6,11 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { userId, message } = await request.json();
 
-    if (!userId || !message) {
-      return new Response(JSON.stringify({ error: "Input tidak valid" }), { status: 400 });
+    if (
+      !userId || typeof userId !== 'string' ||
+      !message || typeof message !== 'string' || message.trim().length > 1000
+    ) {
+      return new Response(JSON.stringify({ error: "Input tidak valid." }), { status: 400 });
     }
 
     const reply = await ChatService.handleUserMessage(userId, message);
@@ -18,6 +21,6 @@ export const POST: APIRoute = async ({ request }) => {
     });
   } catch (error: any) {
     console.error("Chat API Error:", error);
-    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: "Terjadi kesalahan. Coba lagi sebentar." }), { status: 500 });
   }
 };

@@ -1,0 +1,39 @@
+---
+// src/pages/belajar/modul/[id].astro
+import Layout from "../../../layouts/Layout.astro";
+import { db } from "../../../lib/db";
+import { marked } from "marked";
+import LessonReader from "../../../components/LessonReader.svelte";
+
+// 1. Ambil ID Modul dari parameter URL Astro
+const { id } = Astro.params;
+
+if (!id) {
+  return Astro.redirect("/404");
+}
+
+// 2. Ambil data materi langsung dari Database Postgres via Prisma
+const lesson = await db.generatedLesson.findUnique({
+  where: { id },
+  include: { user: true } // Mengambil data user untuk konteks tingkat sekolah
+});
+
+if (!lesson) {
+  return Astro.redirect("/404");
+}
+
+// 3. Konversi teks Markdown Wikipedia menjadi HTML bersih di sisi server
+const htmlContent = await marked.parse(lesson.cleanContent);
+---
+
+<Layout title={lesson.lessonTitle}>
+  <main class="min-h-screen bg-slate-50/50 py-12 px-4 sm:px-6 lg:px-8">
+    <LessonReader 
+      client:load
+      lessonId={lesson.id}
+      title={lesson.lessonTitle}
+      schoolLevel={lesson.schoolLevel}
+      htmlContent={htmlContent}
+    />
+  </main>
+</Layout>

@@ -9,7 +9,7 @@ const createPrismaClient = () => {
   const connectionString = import.meta.env.DATABASE_URL || process.env.DATABASE_URL;
   
   if (!connectionString) {
-    console.error("🚨 GAWAT: URL Database tidak terbaca oleh Astro!");
+    throw new Error("DATABASE_URL tidak ditemukan. Periksa file .env Anda.");
   }
 
   // Masukkan URL ke dalam connection pool

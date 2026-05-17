@@ -1,7 +1,7 @@
 ---
 // src/pages/belajar.astro
 import Layout from "../../layouts/Layout.astro";
-import Chat from "../../components/chat.svelte";
+import Dashboard from "../../components/Dashboard.svelte";
 import ProfileSidebar from "../../components/ProfileSidebar.svelte";
 import Navbar from "../../components/Navbar.astro";
 ---
@@ -25,7 +25,7 @@ import Navbar from "../../components/Navbar.astro";
                 </aside>
 
                 <section class="lg:col-span-9">
-                    <Chat client:load />
+                    <Dashboard client:load />
                 </section>
                 
             </div>
