@@ -1,0 +1,135 @@
+---
+// Footer Component for LENTERA Landing Page
+---
+
+<footer class="bg-[#F8FAFC] text-slate-600 pt-24 pb-12 relative overflow-hidden border-t border-slate-200">
+  <!-- Glowing Background Accent -->
+  <div class="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-[#6320EE]/5 blur-[150px] rounded-full pointer-events-none"></div>
+  <div class="absolute top-0 left-1/4 w-[400px] h-[200px] bg-[#C6F432]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative z-10">
+    <!-- Grid Utama -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+      
+      <!-- Kolom 1: Branding -->
+      <div class="space-y-6">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-[#6320EE] rounded-xl flex items-center justify-center text-xl shadow-lg shadow-[#6320EE]/20">💡</div>
+          <span class="text-2xl font-black text-slate-900 tracking-tighter uppercase">LENTERA</span>
+        </div>
+        <p class="text-slate-500 text-sm leading-relaxed font-medium">
+          Menerangi jalan belajarmu dengan AI Mentor cerdas yang mampu menjelaskan konsep rumit melalui analogi kearifan lokal Indonesia yang seru dan mudah dipahami.
+        </p>
+        <!-- Social Icons -->
+        <div class="flex items-center gap-3 pt-2">
+          {['twitter', 'instagram', 'github', 'youtube'].map(social => (
+            <a href="#" class="w-10 h-10 bg-slate-100 hover:bg-[#6320EE] hover:text-white border border-slate-200 rounded-xl flex items-center justify-center text-slate-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#6320EE]/20" aria-label={social}>
+              {social === 'twitter' && (
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              )}
+              {social === 'instagram' && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              )}
+              {social === 'github' && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              )}
+              {social === 'youtube' && (
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Kolom 2: Tautan Cepat -->
+      <div>
+        <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6 relative inline-block">
+          Program Belajar
+          <span class="absolute bottom-[-6px] left-0 w-8 h-[2px] bg-[#6320EE]"></span>
+        </h4>
+        <ul class="space-y-4">
+          {[
+            { text: 'Visi & Misi', href: '#' },
+            { text: 'Kurikulum Adaptif', href: '#' },
+            { text: 'AI Mentor Pintar', href: '#' },
+            { text: 'Dunia IT Praktis', href: '#' },
+          ].map(link => (
+            <li>
+              <a href={link.href} class="text-slate-500 hover:text-[#6320EE] transition-colors duration-200 flex items-center gap-2 group text-sm font-medium">
+                <span class="w-1.5 h-1.5 bg-slate-300 rounded-full group-hover:bg-[#C6F432] group-hover:scale-125 transition-all"></span>
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Kolom 3: Fitur AI -->
+      <div>
+        <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6 relative inline-block">
+          Fitur Cerdas
+          <span class="absolute bottom-[-6px] left-0 w-8 h-[2px] bg-[#6320EE]"></span>
+        </h4>
+        <ul class="space-y-4">
+          {[
+            { text: 'Analogi Kearifan Lokal', href: '#' },
+            { text: 'Detektor Pemahaman', href: '#' },
+            { text: 'Jadwal Tanpa Tekanan', href: '#' },
+            { text: 'Analisis Kemampuan Realtime', href: '#' },
+          ].map(link => (
+            <li>
+              <a href={link.href} class="text-slate-500 hover:text-[#6320EE] transition-colors duration-200 flex items-center gap-2 group text-sm font-medium">
+                <span class="w-1.5 h-1.5 bg-slate-300 rounded-full group-hover:bg-[#C6F432] group-hover:scale-125 transition-all"></span>
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Kolom 4: Kontak & Newsletter -->
+      <div class="space-y-6">
+        <h4 class="text-slate-900 font-bold text-sm uppercase tracking-widest mb-6 relative inline-block">
+          Hubungi Kami
+          <span class="absolute bottom-[-6px] left-0 w-8 h-[2px] bg-[#6320EE]"></span>
+        </h4>
+        <ul class="space-y-4 text-sm font-medium">
+          <li class="flex items-start gap-3">
+            <span class="text-[#6320EE]">📧</span>
+            <div>
+              <p class="text-slate-900 font-bold">Email Dukungan</p>
+              <a href="mailto:halo@lentera.project" class="text-slate-500 hover:text-[#6320EE] transition-colors">halo@lentera.project</a>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-[#6320EE]">📍</span>
+            <div>
+              <p class="text-slate-900 font-bold">Lokasi Utama</p>
+              <p class="text-slate-500 leading-relaxed">Jakarta, Indonesia</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Garis Pemisah -->
+    <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">
+          © 2026 LENTERA Project. All Rights Reserved.
+        </p>
+        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+          Mencerdaskan Bangsa dengan Teknologi AI Adaptif
+        </p>
+      </div>
+      
+      <!-- Link Tambahan -->
+      <div class="flex items-center gap-8 text-xs font-bold uppercase tracking-wider text-slate-400">
+        <a href="#" class="hover:text-[#6320EE] transition-colors">Kebijakan Privasi</a>
+        <span class="w-1.5 h-1.5 bg-slate-200 rounded-full"></span>
+        <a href="#" class="hover:text-[#6320EE] transition-colors">Syarat & Ketentuan</a>
+      </div>
+    </div>
+  </div>
+</footer>

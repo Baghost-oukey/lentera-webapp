@@ -1,42 +1,45 @@
 ---
-const tutorImg = "/tutor_student_learning_1778817368080.png";
-const calendarImg = "/calendar_educational_illustration_1778817389135.png";
-const studentImg = "/student_male_learning_1778817093108.png";
+import computerImg from '../../../public/images/Computer.jpg';
+import aiImg from '../../../public/images/AI.jpg';
+import toolsImg from '../../../public/images/Tools.jpg';
 
 const services = [
   {
-    title: "Personalized Learning Plans",
-    img: studentImg
+    title: "Dasar Pengguanan Komputer",
+    img: computerImg.src
   },
   {
-    title: "Experienced Tutors & Coaches",
-    img: tutorImg
+    title: "Pemanfaatan AI untuk produktivitas",
+    img: aiImg.src
   },
   {
-    title: "Flexible Scheduling",
-    img: calendarImg
+    title: "Tools Untuk Mempermudah Produktivitas",
+    img: toolsImg.src
   }
 ];
 ---
 
-<section class="py-32 px-6 bg-[#F8FAFC]">
+<section class="py-32 px-6 bg-[#F8FAFC] relative overflow-hidden border-t border-slate-100">
+  <!-- Glowing Aurora Orb (Soft Light Accent) -->
+  <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[#6320EE]/5 blur-[120px] rounded-full pointer-events-none"></div>
+
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-8">
       <div class="max-w-2xl relative">
-        <span class="inline-block px-4 py-2 rounded-full bg-[#ECE9FE] text-[#6320EE] text-xs font-bold uppercase tracking-wider mb-6">
-          Our Services
+        <span class="inline-block px-4 py-2 rounded-full bg-[#6320EE]/10 border border-[#6320EE]/20 text-[#6320EE] text-xs font-bold uppercase tracking-wider mb-6">
+          Visi Kami
         </span>
         <h2 class="text-5xl md:text-6xl font-black text-slate-900 leading-tight relative">
-          How Our <span class="relative inline-block px-1">
-            Homeschooling
+         Edukasi <span class="relative inline-block px-1">
+            Dunia IT
             <!-- Multi-stroke Scribble Underline -->
             <svg viewBox="0 0 200 25" preserveAspectRatio="none" class="absolute -bottom-3 left-0 w-full h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
               <path d="M10,15 C50,5 90,25 130,15 C160,10 190,5 190,12" />
               <path d="M15,20 C55,10 95,30 135,20 C165,15 185,10 185,17" opacity="0.7" />
               <path d="M20,12 C60,2 100,22 140,12 C170,7 180,2 180,9" opacity="0.4" />
             </svg>
-          </span> Services Work
+          </span> Dengan Menyenangkan
 
           <!-- Professional Sparkles -->
           <div class="absolute -top-8 -right-14 text-[#6320EE]">
@@ -50,7 +53,7 @@ const services = [
         </h2>
       </div>
       <p class="text-slate-500 max-w-sm text-lg font-medium leading-relaxed">
-        Learn how our homeschooling services provide personalized, flexible learning tailored to your child's needs, all from the comfort of home!
+        Visi Misi Kami Adalah Memberikan Edukasi Dunia IT dan Pemanfaatan dunia Digital Untuk Mengembangkan Teknologi Indonesia
       </p>
     </div>
 
@@ -61,7 +64,7 @@ const services = [
           <!-- Orange Button Tab -->
           <div class="absolute -top-4 -right-4 z-20">
             <div class="w-20 h-20 bg-[#F8FAFC] rounded-full p-2">
-              <button class="w-full h-full bg-[#F59E0B] rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-500">
+              <button class="w-full h-full bg-[#C6F432] rounded-full flex items-center justify-center text-slate-950 text-3xl shadow-lg shadow-[#C6F432]/25 group-hover:scale-110 transition-all duration-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M7 17L17 7M17 7H7M17 7V17" />
                 </svg>
@@ -69,17 +72,17 @@ const services = [
             </div>
           </div>
 
-          <!-- Purple Card Body -->
-          <div class="bg-[#6320EE] rounded-[3.5rem] pt-12 px-2 pb-2 h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-purple-600/20 group-hover:-translate-y-2">
-            <h3 class="text-2xl font-bold text-white px-8 mb-10 max-w-[200px] leading-snug">
+          <!-- White Card Body (Minimalist Tech-Ivory) -->
+          <div class="bg-white border border-slate-100/80 rounded-[3.5rem] pt-12 px-2 pb-2 h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:shadow-slate-200/50 group-hover:-translate-y-2">
+            <h3 class="text-2xl font-bold text-slate-900 group-hover:text-[#6320EE] transition-colors px-8 mb-10 max-w-[200px] leading-snug">
               {service.title}
             </h3>
             
             <!-- Image Container with Custom Shape -->
             <div class="mt-auto relative">
               <!-- Masking layer to create the "wavy" top cutout -->
-              <div class="absolute -top-10 left-0 w-full h-12 bg-[#6320EE] rounded-t-[3rem]"></div>
-              <div class="relative bg-white rounded-t-[3rem] rounded-b-[3rem] overflow-hidden">
+              <div class="absolute -top-10 left-0 w-full h-12 bg-white transition-colors duration-500 rounded-t-[3rem]"></div>
+              <div class="relative bg-slate-50 rounded-t-[3rem] rounded-b-[3rem] overflow-hidden">
                 <img 
                   src={service.img} 
                   alt={service.title} 

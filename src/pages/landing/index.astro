@@ -5,8 +5,8 @@ import Navbar from '../../components/Navbar.astro';
 import Hero from './_components/Hero.astro';
 import Services from './_components/Services.astro';
 import Solutions from './_components/Solutions.astro';
-import Testimonials from './_components/Testimonials.astro';
 import Community from './_components/Community.astro';
+import Footer from './_components/Footer.astro';
 import Onboarding from '../../components/Onboarding.svelte';
 
 const title = "LENTERA - Terangi Jalur Belajarmu dengan AI Mentor Lokal";
@@ -27,27 +27,9 @@ const description = "Platform belajar inovatif yang menggunakan AI untuk menjela
 
       <Solutions />
 
-      <Testimonials />
-
       <Community />
       
-      <footer class="py-24 text-center border-t border-slate-200 bg-white">
-        <div class="max-w-5xl mx-auto px-6">
-          <div class="flex items-center justify-center gap-2 mb-10">
-            <span class="text-2xl">💡</span>
-            <span class="text-xl font-black text-slate-900 tracking-tighter uppercase">LENTERA</span>
-          </div>
-          <p class="text-slate-400 text-xs font-bold tracking-[0.2em] uppercase mb-10">
-            © 2026 LENTERA Project • Mencerdaskan Bangsa dengan Teknologi AI
-          </p>
-          <div class="flex flex-wrap justify-center gap-10 text-slate-500 text-sm font-bold uppercase tracking-widest">
-            <a href="#" class="hover:text-[#6320EE] transition-colors">Visi & Misi</a>
-            <a href="#" class="hover:text-[#6320EE] transition-colors">Kurikulum</a>
-            <a href="#" class="hover:text-[#6320EE] transition-colors">AI Mentor</a>
-            <a href="#" class="hover:text-[#6320EE] transition-colors">Kontak Kami</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   </div>
 </Layout>
